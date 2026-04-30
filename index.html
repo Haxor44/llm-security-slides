@@ -462,6 +462,28 @@
     h1.section-title { font-size: 56px; }
     h2.slide-title { font-size: 44px; }
   }
+
+  /* Print / PDF export */
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { width: 1280px; height: auto; overflow: visible; background: #0b0f15; }
+    .deck { position: static; width: 1280px; height: auto; overflow: visible; }
+    .slide {
+      display: flex !important;
+      position: relative !important;
+      inset: auto !important;
+      width: 1280px;
+      height: 720px;
+      page-break-after: always;
+      break-after: page;
+      animation: none !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .slide:last-of-type { page-break-after: auto; break-after: auto; }
+    .progress, .hint, .nav, .lightbox { display: none !important; }
+    .card:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
